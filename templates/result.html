@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Booking Records</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Bookings</h1>
+        <ul>
+            {% for booking in bookings %}
+                <li>{{ booking.name }} ({{ booking.phone }}) - Car: {{ booking.car_number }} on {{ booking.date }}</li>
+            {% else %}
+                <li>No bookings found.</li>
+            {% endfor %}
+        </ul>
+        <a href="/logout">Logout</a>
+    </div>
+</body>
+</html>
